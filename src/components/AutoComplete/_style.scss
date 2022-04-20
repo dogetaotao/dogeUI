@@ -1,0 +1,48 @@
+.doge-auto-complete {
+  position: relative;
+}
+
+.doge-suggestions-list {
+  list-style: none;
+  padding-left: 0;
+  white-space: nowrap;
+  position: absolute;
+  background: $white;
+  z-index: 10;
+  top: calc(100% + 8px);
+  left: 0;
+  border-radius: $border-radius;
+  border: $menu-border-width solid $menu-border-color;
+  box-shadow: $submenu-box-shadow;
+  width: 100%;
+  overflow: hidden;
+  .suggestions-loading-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 75px;
+  }
+  .suggestions-item {
+    padding: $menu-item-padding-y $menu-item-padding-x;
+    cursor: pointer;
+    transition: $autoComplete-transition;
+    color: $body-color;
+    margin-left: 0;
+    &.is-active {
+      background: $menu-item-active-color !important;
+      color: $white !important;
+    }
+    &:hover {
+      color: $menu-item-active-color !important;
+      margin-left: calc(2%);
+    }
+  }
+  .item-highlighted {
+    color: $menu-item-active-color !important;
+    margin-left: calc(2%);
+  }
+}
+
+.doge-suggestions-display-none {
+  display: none;
+}

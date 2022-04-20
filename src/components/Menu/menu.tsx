@@ -1,4 +1,4 @@
-import React, {useState, createContext} from "react";
+import React, {useState, createContext, FC} from "react";
 import classnames from "classnames";
 import {MenuItemProps} from "./menuItem";
 
@@ -27,8 +27,16 @@ interface IMenuContext {
 
 export const MenuContext = createContext<IMenuContext>({index: '0'})
 
-const Menu: React.FC<MenuProps> = (props) => {
-	const {className, defaultIndex, mode, children, style, onSelect, defaultOpenSubMenus} = props
+const Menu: FC<MenuProps> = (props) => {
+	const {
+		className,
+		defaultIndex,
+		mode,
+		children,
+		style,
+		onSelect,
+		defaultOpenSubMenus,
+	} = props
 	
 	const classes = classnames('doge-menu', className, {
 		'menu-vertical': mode === 'vertical',

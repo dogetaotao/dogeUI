@@ -1,0 +1,129 @@
+.doge-select {
+  position: relative;
+
+  .select-span {
+    display: inline-block;
+    width: 100%;
+    border: $btn-border-width solid $border-color;
+    color: $body-color;
+    box-shadow: $btn-box-shadow;
+    outline: none;
+    border-radius: $btn-border-radius;
+    padding: $btn-padding-y $btn-padding-x;
+    font-weight: $btn-font-weight;
+    cursor: pointer;
+    transition: $input-transition;
+    background-color: $white;
+    height: 100%;
+    word-wrap: normal;
+    text-align: left;
+
+    &:hover {
+      border-color: $primary;
+      box-shadow: $input-hover-box-shadow;
+    }
+
+    .select-span-placeholder {
+      color: $input-placeholder-color;
+    }
+
+    .tags-item {
+      background-color: $gray-200;
+      margin-right: 3px;
+      padding: 0 $select-tags-padding-x;
+      font-size: $font-size-base;
+      svg {
+        margin-left: 3px;
+        &:hover {
+          color: $gray-600;
+        }
+      }
+    }
+  }
+
+  .select-input {
+    display: inline-block;
+    width: 100%;
+    border: $btn-border-width solid $border-color;
+    color: $body-color;
+    box-shadow: $btn-box-shadow;
+    outline: none;
+    border-radius: $btn-border-radius;
+    padding: $btn-padding-y $btn-padding-x;
+    cursor: pointer;
+    transition: $input-transition;
+
+    &:hover {
+      border-color: $primary;
+      box-shadow: $input-hover-box-shadow
+    }
+  }
+
+  .select-arrow {
+    position: absolute;
+    right: $btn-padding-x;
+    top: calc(50% - 8px);
+    color: $input-placeholder-color;
+  }
+
+  .select-ul {
+    list-style: none;
+    white-space: nowrap;
+    padding-left: 0;
+    box-shadow: $select-list-box-shadow;
+    z-index: 100;
+    position: absolute;
+    top: calc(100% + 8px);
+    width: 100%;
+    background-image: none;
+    background-color: $white;
+    border-radius: $btn-border-radius;
+    overflow: hidden;
+
+    .select-option {
+      padding: $btn-padding-y $btn-padding-x;
+      cursor: pointer;
+      line-height: $btn-line-height;
+      transition: $select-item-transition;
+      text-align: left;
+      &:hover {
+        background-color: $select-item-hover-color;
+      }
+    }
+    .is-choice {
+      background-color: $select-primary-opacity !important;
+    }
+
+    .is-disabled {
+      cursor: not-allowed;
+      background-color: $gray-200;
+      opacity: $btn-disabled-opacity;
+      > * {
+        pointer-events: none;
+      }
+    }
+  }
+}
+
+.select-size-lg {
+  @include doge-select-size($btn-padding-y-lg, $btn-padding-x-lg, $btn-border-radius-lg, $btn-font-size-lg, $line-height-lg)
+}
+.select-size-sm {
+  @include doge-select-size($btn-padding-y-sm, $btn-padding-x-sm, $btn-border-radius-sm, $btn-font-size-sm, $line-height-sm)
+}
+
+.select-opened {
+  .select-span,
+  .select-input {
+    border-color: $primary;
+    box-shadow: $input-focus-box-shadow;
+  }
+}
+
+
+
+
+
+
+
+

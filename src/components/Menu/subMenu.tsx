@@ -5,15 +5,16 @@ import {MenuItemProps} from "./menuItem";
 import Icon from "../Icon/icon";
 import Transition from "../Transition/transition";
 
-
+type TransitionType = 'top' | 'bottom' | 'left' | 'right'
 export interface SubMenuProps {
 	index?: string,
 	title: string,
-	className?: string
+	className?: string,
+	transitionType?: TransitionType
 }
 
 const SubMenu: React.FC<SubMenuProps> = (props) => {
-	const {className, children, index, title} = props
+	const {className, children, index, title, transitionType} = props
 	const context = useContext(MenuContext)
 	const openedSubMenus = context.defaultOpenSubMenus as Array<string>
 	const isOpened = (index && context.mode === 'vertical') ? openedSubMenus.includes(index) : false
@@ -26,12 +27,14 @@ const SubMenu: React.FC<SubMenuProps> = (props) => {
 	})
 	
 	const handleClick = (e: React.MouseEvent) => {
+		//阻止默认的点击动作发生
 		e.preventDefault()
 		setOpen(!menuOpen)
 	}
 	let timer: any
 	const handleMouse = (e: React.MouseEvent, toggle: boolean) => {
 		clearTimeout(timer)
+		//阻止默认的点击动作发生
 		e.preventDefault()
 		timer = setTimeout(() => {
 			setOpen(toggle)
@@ -53,7 +56,7 @@ const SubMenu: React.FC<SubMenuProps> = (props) => {
 		})
 		return (
 			// @ts-ignore
-			<Transition in={menuOpen} timeout={300} nodeRef={nodeRef} animation='zoom-in-left'>
+			<Transition in={menuOpen} timeout={300} nodeRef={nodeRef} animation={transitionType? `zoom-in-${transitionType}`: 'zoom-in-left'}>
 				<ul ref={nodeRef} className={subMenuClasses}>
 					{childrenComponent}
 				</ul>
@@ -83,4 +86,7 @@ const SubMenu: React.FC<SubMenuProps> = (props) => {
 }
 
 SubMenu.displayName = 'SubMenu'
+SubMenu.defaultProps = {
+	transitionType: 'left'
+}
 export default SubMenu

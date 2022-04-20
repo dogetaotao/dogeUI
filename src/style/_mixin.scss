@@ -1,5 +1,5 @@
 @mixin button-size($padding-x, $padding-y, $font-size, $border-radius){
-  padding: $padding-y, $padding-x;
+  padding: $padding-y $padding-x;
   font-size: $font-size;
   border-radius: $border-radius;
 }
@@ -68,5 +68,39 @@
     transform: $scaleStart;
     transition: transform 300ms cubic-bezier(0.23, 1, 0.32, 1) 100ms, opacity 300ms cubic-bezier(0.23, 1, 0.32, 1) 100ms;
     transform-origin: $origin;
+  }
+}
+
+@mixin border-right-radius($raduis) {
+  border-top-right-radius: $raduis;
+  border-bottom-right-radius: $raduis;
+}
+
+@mixin border-left-radius($raduis) {
+  border-top-left-radius: $raduis;
+  border-bottom-left-radius: $raduis;
+}
+
+@mixin doge-select-size($padding-y, $padding-x, $border-radius, $font-size, $line-height){
+  .select-span,
+  .select-input {
+    border-radius: $border-radius;
+    padding: $padding-y $padding-x;
+    font-size: $font-size;
+    line-height: $line-height;
+  }
+  .select-ul {
+    border-radius: $border-radius;
+    .select-option {
+      padding: $padding-y $padding-x;
+      line-height: $line-height;
+      font-size: $font-size;
+    }
+  }
+  .select-arrow {
+    right: $padding-x;
+  }
+  .tags-item {
+    font-size: $font-size !important;
   }
 }

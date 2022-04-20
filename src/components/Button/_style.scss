@@ -55,9 +55,10 @@
 .btn-link {
   font-weight: $font-weight-normal;
   color: $btn-link-color;
+  background-color: $white;
   box-shadow: none;
   text-decoration: $link-decoration;
-
+  border-color: white;
   &:hover {
     text-decoration: $link-hover-decoration;
     color: $btn-link-hover-color;
@@ -67,6 +68,7 @@
   &.focus {
     text-decoration: $link-hover-decoration;
     box-shadow: none;
+    outline: none;
   }
 
   &:disabled,

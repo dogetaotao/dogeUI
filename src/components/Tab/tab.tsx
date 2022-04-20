@@ -25,7 +25,15 @@ export const TabContext = createContext<ITabContext>({index: '0'})
 
 
 const Tab: React.FC<TabsProps> = (props) => {
-	const {className, children, mode, tabStyle, style, defaultIndex, onSelect} = props
+	const {
+		className,
+		children,
+		mode,
+		tabStyle,
+		style,
+		defaultIndex,
+		onSelect
+	} = props
 	const classes = classnames('doge-tab', className, {
 		'tab-vertical': mode === 'vertical' && tabStyle !== 'card',
 		'tab-horizontal': mode !== 'vertical' || tabStyle === 'card',
