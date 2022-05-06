@@ -237,12 +237,16 @@
       line-height: calc(100% + .3rem);
       border-radius: $input-select-border-radius;
       margin-right: -1px;
+      height: 100%;
 
       &:hover {
         border-color: $input-focus-border-color;
         box-shadow: $input-hover-box-shadow;
         z-index: 3;
       }
+    }
+    .select-span {
+      height: 100%;
     }
     &:hover {
       z-index: 2;
@@ -256,6 +260,9 @@
       line-height: calc(100% + .4rem);
       border-radius: $input-select-border-radius-lg;
     }
+    .select-span {
+      height: 100%;
+    }
   }
 
   .select-size-sm {
@@ -264,6 +271,9 @@
     {
       line-height: calc(100% + .3rem);
       border-radius: $input-select-border-radius-sm;
+    }
+    .select-span {
+      height: 100%;
     }
   }
 

@@ -4,3 +4,10 @@
 .menu-horizontal {
     margin-bottom: 9rem;
 }
+.tab-horizontal {
+    margin-top: 1rem;
+    margin-bottom: 3rem;
+}
+.tab-vertical {
+    width: 20rem;
+}

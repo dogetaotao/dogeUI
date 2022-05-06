@@ -58,15 +58,17 @@ const AutoComplete: FC<AutoCompleteProps> = (props) => {
 				results.then(data => {
 					setLoading(false)
 					setSuggestions(data)
-					if (data.length > 0) {
-						setShowDropdown(true)
-					}
+					// if (data.length > 0) {
+					// 	setShowDropdown(true)
+					// }
+					setShowDropdown(true)
 				})
 			} else {
 				setSuggestions(results)
-				if (results.length > 0) {
-					setShowDropdown(true)
-				}
+				// if (results.length > 0) {
+				// 	setShowDropdown(true)
+				// }
+				setShowDropdown(true)
 			}
 		} else {
 			setShowDropdown(false)
@@ -138,15 +140,15 @@ const AutoComplete: FC<AutoCompleteProps> = (props) => {
 			>
 				<ul className={ulClassNames}>
 					{loading &&
-					<div className='suggestions-loading-icon'>
-						<Icon icon='circle' theme='primary' beatFade/>
-					</div>
+          <div className='suggestions-loading-icon'>
+            <Icon icon='circle' theme='primary' beatFade/>
+          </div>
 					}
 					{
 						(!loading && suggestions.length === 0) &&
-						<div className='suggestions-loading-icon'>
-							<Icon icon='file-circle-xmark' theme='primary' opacity='.5'/>
-						</div>
+            <div className='suggestions-loading-icon'>
+              <Icon icon='file-circle-xmark' theme='primary' opacity='.5'/>
+            </div>
 					}
 					{
 						suggestions.map((item, index) => {

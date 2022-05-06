@@ -6,7 +6,7 @@ import Transition from "../Transition/transition";
 import useClickOutside from "../../hooks/useClickOutside";
 
 
-type Size = 'lg' | 'sm'
+type Size = 'lg' | 'sm' | 'def'
 type Mode = 'tags' | 'multiple'
 type SelectCallBack = (selectOption: string) => void
 type OptionCallBack = (value: string, index: string) => void
@@ -212,7 +212,8 @@ const Select: FC<SelectProps> = (props) => {
 }
 
 Select.defaultProps = {
-	mode: 'multiple'
+	mode: 'multiple',
+	size: 'def'
 }
 
 export default Select;

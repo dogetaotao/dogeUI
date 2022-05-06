@@ -14,9 +14,10 @@
     cursor: pointer;
     transition: $input-transition;
     background-color: $white;
-    height: 100%;
     word-wrap: normal;
     text-align: left;
+    line-height: $line-height-base;
+    height: calc(2px + 2.25rem);
 
     &:hover {
       border-color: $primary;
@@ -56,6 +57,10 @@
     &:hover {
       border-color: $primary;
       box-shadow: $input-hover-box-shadow
+    }
+
+    &::placeholder {
+      color: $input-placeholder-color;
     }
   }
 
@@ -110,6 +115,17 @@
 }
 .select-size-sm {
   @include doge-select-size($btn-padding-y-sm, $btn-padding-x-sm, $btn-border-radius-sm, $btn-font-size-sm, $line-height-sm)
+}
+
+.select-size-lg {
+  .select-span {
+    height: calc(2px + 3.5rem);
+  }
+}
+.select-size-sm {
+  .select-span {
+    height: calc(2px + 1.6rem);
+  }
 }
 
 .select-opened {

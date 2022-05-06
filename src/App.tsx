@@ -11,7 +11,7 @@ import Input from "./components/Input/input";
 import AutoComplete, {DataSourceType} from "./components/AutoComplete/autoComplete";
 import Select from "./components/Select/select";
 import Option from "./components/Select/option";
-import axios from "axios";
+import Upload from "./components/UpLoad/upload";
 
 
 interface GithubUserProps {
@@ -27,30 +27,30 @@ const App: React.FC = () => {
 		title: 'my title',
 		body: 'hello man'
 	}
-	
-	useEffect(() => {
-		axios.post('http://jsonplaceholder.typicode.com/posts', postData)
-			.then(resp => {
-				console.log(resp)
-				setTitle(resp.data.title)
-			})
-	})
-	
-	const handleFileChange = (e:React.ChangeEvent<HTMLInputElement>) => {
-		const files = e.target.files
-		if(files) {
-			const uploadedFile = files[0]
-			const formData = new FormData()
-			formData.append(uploadedFile.name, uploadedFile)
-			axios.post('http://jsonplaceholder.typicode.com/posts', formData, {
-				headers: {
-					'Content-Type': 'multipart/form-data'
-				}
-			}).then(resp => {
-				console.log(resp)
-			})
-		}
-	}
+	//
+	// useEffect(() => {
+	// 	axios.post('http://jsonplaceholder.typicode.com/posts', postData)
+	// 		.then(resp => {
+	// 			console.log(resp)
+	// 			setTitle(resp.data.title)
+	// 		})
+	// })
+	//
+	// const handleFileChange = (e:React.ChangeEvent<HTMLInputElement>) => {
+	// 	const files = e.target.files
+	// 	if(files) {
+	// 		const uploadedFile = files[0]
+	// 		const formData = new FormData()
+	// 		formData.append(uploadedFile.name, uploadedFile)
+	// 		axios.post('http://jsonplaceholder.typicode.com/posts', formData, {
+	// 			headers: {
+	// 				'Content-Type': 'multipart/form-data'
+	// 			}
+	// 		}).then(resp => {
+	// 			console.log(resp)
+	// 		})
+	// 	}
+	// }
 	
 	const handleFetch = (query: string) => {
 		return fetch(`https://api.github.com/search/users?q=${query}`)
@@ -72,7 +72,6 @@ const App: React.FC = () => {
 		<div className="App">
 			<header className="App-header">
 				<h1>{title}</h1>
-				<input type="file" name='myFile' onChange={handleFileChange}/>
 				
 				<div style={{margin: '40px'}}>
 					<AutoComplete
@@ -208,6 +207,12 @@ const App: React.FC = () => {
 						<Option>选项3</Option>
 						<Option>选项4</Option>
 					</Select>}/>
+					
+					<Upload action='http://jsonplaceholder.typicode.com/posts' onProgress={(a,b) => {
+						console.log(a)
+					}}>
+						<Button>ss</Button>
+					</Upload>
 				</div>
 			</header>
 		</div>
